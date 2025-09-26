@@ -1,56 +1,58 @@
-//Types of Constructor and their uses
+//Base class Shape
 
-class Car{
-     //Instances variables for car details
-    private String brand;
-    private String model;
-    private int year;
-
-    //No-argument constructor
-    public Car(){
-        //Calling the one-argument constructor using this()
-        this("Unknown");
+class Shape {
+    //Constructor
+    public Shape() {
+        // Base class constructor 
     }
-     //One - argument constructor(brand)
-     public Car(String brand){
-        this(brand,"Unknown", 0);
-     }
 
-     //Three argument constructor (brand, model, year)
-     public Car(String brand, String model, int year){
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-     }
-
-     //Method to display car information
-     public void displayInfo(){
-        System.out.println("Brand: " + brand);
-        System.out.println("Model: " + model);
-        System.out.println("Year: " + year);
-     }
+    public void area(){
+        System.out.println("Area not defined for this Shape. ");
+    }
 }
-   
-public class LabAssignment4{
-    public static void main(String[] args){
-        //Creating objects using different constructors
-        Car car1 = new Car();
-        Car car2 = new Car("Toyota");
-        Car car3 = new Car("Tesla","Model 3", 2025);
 
-        //Displaying car information
-        System.out.println("Car 1 details: ");
-        car1.displayInfo();
-        System.out.println();
+//Subclass Circle
+class Circle extends Shape {
+    private double radius;
 
-        System.out.println("Car 2 details: ");
-        car2.displayInfo();
-        System.out.println();
+    //Constructor to initialize the radius of the circle
+    public Circle(double radius){
+        this.radius = radius;
+    }
 
-        System.out.println("Car 3 details:");
-        car3.displayInfo();
-
-     }
+    //Overriding the area method to calculate area of a circle 
+    public void area() { 
+        double area = Math.PI * radius * radius;
+        System.out.println("Area of Circle: " + area);
+    }
 }
-    
-     
+
+//Subclass Rectangle
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    //Constructor to initialize the length and width of the rectangle
+    public Rectangle (double length, double width){
+        this.length = length;
+        this.width = width;
+    }
+
+    //Overriding the area method to calculate area of a circle 
+    public void area() { 
+        double area = length * width;
+        System.out.println("Area of Rectangle: " + area);
+    }
+}
+
+public class LabAssignment3 {
+    public static void main(String[] args) {
+        //Create an object of Circle
+        Circle circle = new Circle(4.0);
+        circle.area(); // Display area of circle
+
+        //Create an object of Rectangle
+        Rectangle rectangle = new Rectangle(5.9, 4.5);
+        rectangle.area(); // Display area of rectangle
+    }
+}

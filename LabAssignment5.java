@@ -1,98 +1,56 @@
-//Multilevel inheritance
+//Types of Constructor and their uses
 
-//Base class to store basic student details
-class Student{
-    String rollNo;
-    String name;
-    String course;
+class Car{
+     //Instances variables for car details
+    private String brand;
+    private String model;
+    private int year;
 
-    //Constructor to initialize student details
-    Student(String rollNo, String name, String course) {
-        this.rollNo = rollNo;
-        this.name = name;
-        this.course = course;
+    //No-argument constructor
+    public Car(){
+        //Calling the one-argument constructor using this()
+        this("Unknown");
     }
+     //One - argument constructor(brand)
+     public Car(String brand){
+        this(brand,"Unknown", 0);
+     }
 
-    //Method to display student details
-    void displayStudentInfo(){
-        System.out.println("Roll No: " + rollNo);
-        System.out.println("Name: " + name);
-        System.out.println("Course: " + course);
-    }
+     //Three argument constructor (brand, model, year)
+     public Car(String brand, String model, int year){
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+     }
+
+     //Method to display car information
+     public void displayInfo(){
+        System.out.println("Brand: " + brand);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+     }
 }
+   
+public class LabAssignment4{
+    public static void main(String[] args){
+        //Creating objects using different constructors
+        Car car1 = new Car();
+        Car car2 = new Car("Toyota");
+        Car car3 = new Car("Tesla","Model 3", 2025);
 
-//Subclass Marks to store marks of three subjects 
-class Marks extends Student {
-    int subject1;
-    int subject2;
-    int subject3;
+        //Displaying car information
+        System.out.println("Car 1 details: ");
+        car1.displayInfo();
+        System.out.println();
 
-    //Constructor to initialize student details and marks
-    Marks(String rollNo, String name, String course, int subject1, int subject2, int subject3){
-        super(rollNo, name, course); //Calling base class constructor
-        this.subject1 = subject1;
-        this.subject2 = subject2;
-        this.subject3 = subject3;
-    }
+        System.out.println("Car 2 details: ");
+        car2.displayInfo();
+        System.out.println();
 
-    //Method to display marks of the student
-    void displayMarks(){
-        System.out.println("Marks in Subject 1: " + subject1);
-        System.out.println("Marks in Subject 2: " + subject2);
-        System.out.println("Marks in Subject 3: " + subject3);
-    }
+        System.out.println("Car 3 details:");
+        car3.displayInfo();
+
+     }
 }
-
-//Subclass Result to calculate total marks, percentage and grade
-class Result extends Marks{
-    int totalMarks;
-    double percentage;
-    String grade;
-
-    //Constructor to initialize student details and marks
-    Result(String rollNo, String name, String course, int subject1, int subject2, int subject3){
-        super(rollNo, name, course, subject1, subject2, subject3); //Calling Marks constructor
-    }
-    //Method to calculate total marks and percentage
-    void calculateResult(){
-        totalMarks = subject1 + subject2 + subject3;
-        percentage = (totalMarks / 3.0);
-    }
-
-    //Method to assign grade based on percentage 
-    void assignGrade(){
-        if(percentage >= 90) {
-            grade = "A";
-        } else if (percentage >= 75) {
-            grade = "B";
-        } else if (percentage >= 50) {
-            grade = "C";
-        } else {
-            grade = "D";
-        }
-    }
-
-    //Method to display the complete student result
-    void displayResult(){
-        displayStudentInfo();
-        displayMarks();
-        System.out.println("Total Marks: " + totalMarks);
-        System.out.println("Percentage: " + percentage);
-        System.out.println("Grade: " + grade);
-    }
-}
-
-//Main class to test the functionality
-public class LabAssignment5{
-    public static void main(String[] args) {
-        //Create an object of Result class and initialize student details and marks
-        Result student1 = new Result("A102" , "John" , "Computer Science", 90, 92, 99);
-
-        //Calculate the total, percentage, and grade
-        student1.calculateResult();
-        student1.assignGrade(); 
-
-        //Display the student information, marks, total, percentage, and grade
-        student1.displayResult();
-    }
-}
+    
+     

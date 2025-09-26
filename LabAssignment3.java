@@ -1,58 +1,54 @@
-//Base class Shape
+//Constructor Overloading
 
 class Shape {
-    //Constructor
-    public Shape() {
-        // Base class constructor 
-    }
+    double radius;
+    double length, width;
 
-    public void area(){
-        System.out.println("Area not defined for this Shape. ");
-    }
-}
-
-//Subclass Circle
-class Circle extends Shape {
-    private double radius;
-
-    //Constructor to initialize the radius of the circle
-    public Circle(double radius){
+    //Constructor for Circle
+    Shape(double radius){
         this.radius = radius;
+        this.length = 0;
+        this.width = 0;
     }
 
-    //Overriding the area method to calculate area of a circle 
-    public void area() { 
-        double area = Math.PI * radius * radius;
-        System.out.println("Area of Circle: " + area);
-    }
-}
-
-//Subclass Rectangle
-class Rectangle extends Shape {
-    private double length;
-    private double width;
-
-    //Constructor to initialize the length and width of the rectangle
-    public Rectangle (double length, double width){
+    //Constructor for Rectangle
+    Shape(double length, double width){
         this.length = length;
         this.width = width;
+        this.radius = 0;
     }
 
-    //Overriding the area method to calculate area of a circle 
-    public void area() { 
-        double area = length * width;
-        System.out.println("Area of Rectangle: " + area);
+    //Method to calculate and display area of circle
+    void areaCircle(){
+        if(radius>0){
+            double area = Math.PI * radius * radius;
+            System.out.println("Area of Circle with radius" + radius + "is" + area);
+        } else {
+            System.out.println("Not a circle shape");
+        }
+    }
+
+     //Method to calculate and display area of rectangle
+    void areaRectangle(){
+        if(length > 0 && width >0 ){
+            double area = length * width;
+            System.out.println("Area of Circle with length" + length + "and width" + width + "is:" + area);
+        } else {
+            System.out.println("Not a rectangle shape");
+        }
     }
 }
 
-public class LabAssignment3 {
+public class LabAssignment3{
     public static void main(String[] args) {
-        //Create an object of Circle
-        Circle circle = new Circle(4.0);
-        circle.area(); // Display area of circle
+        
+        //Create circle object with radius 9
+        Shape circle = new Shape(9);
+        circle.areaCircle();
 
-        //Create an object of Rectangle
-        Rectangle rectangle = new Rectangle(5.9, 4.5);
-        rectangle.area(); // Display area of rectangle
-    }
+        //Create rectangle object with length 12 and width 19
+        Shape rectangle = new Shape(12,19);
+        rectangle.areaRectangle();
+
+     }
 }
