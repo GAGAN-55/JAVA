@@ -102,7 +102,7 @@ class StudentMangementSystem{
 //================================================================
 //Task 3. Main Driver Class
 //================================================================
-public class LabAssignment{
+public class LabAssignment1{
     public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
