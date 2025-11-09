@@ -45,7 +45,7 @@ class Rectangle extends Shape {
     }
 }
 
-public class LabAssignment3 {
+public class LabAssignment4 {
     public static void main(String[] args) {
         //Create an object of Circle
         Circle circle = new Circle(4.0);

@@ -83,7 +83,7 @@ class Result extends Marks{
 }
 
 //Main class to test the functionality
-public class LabAssignment5{
+public class LabAssignment6 {
     public static void main(String[] args) {
         //Create an object of Result class and initialize student details and marks
         Result student1 = new Result("A102" , "John" , "Computer Science", 90, 92, 99);

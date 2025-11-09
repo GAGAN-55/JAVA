@@ -31,7 +31,7 @@ class Car{
      }
 }
    
-public class LabAssignment4{
+public class LabAssignment5 {
     public static void main(String[] args){
         //Creating objects using different constructors
         Car car1 = new Car();
